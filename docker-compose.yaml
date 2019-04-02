@@ -1,0 +1,15 @@
+version: '3'
+
+# Definition of application services (containers)
+services:
+ # Configuration for database container
+ db:
+   build: ./database
+   restart: always
+
+ # (optional) Container for managing the database via the web interface
+ adminer:
+   image: adminer
+   restart: always
+   ports:
+     - 8080:8080
