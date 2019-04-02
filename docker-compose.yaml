@@ -20,3 +20,14 @@ services:
    ports:
    - 3000:3000
    command: npm start
+   depends_on:
+     - backend
+
+ # Configuration for backend container
+ backend:
+   build: ./pyramid_app
+   ports:
+     - 6543:6543
+   command: pserve --reload development.ini
+   depends_on:
+     - db
